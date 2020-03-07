@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://duanyitao.com/"/>
-  <updated>2020-03-06T15:42:09.436Z</updated>
+  <updated>2019-12-30T09:27:10.532Z</updated>
   <id>http://duanyitao.com/</id>
   
   <author>
@@ -15,36 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>iOS TextField 输入框处理关闭键盘策略</title>
-    <link href="http://duanyitao.com/2020/01/03/iOS-TextField-%E8%BE%93%E5%85%A5%E6%A1%86%E5%A4%84%E7%90%86%E5%85%B3%E9%97%AD%E9%94%AE%E7%9B%98%E7%AD%96%E7%95%A5/"/>
-    <id>http://duanyitao.com/2020/01/03/iOS-TextField-输入框处理关闭键盘策略/</id>
-    <published>2020-01-03T02:10:17.000Z</published>
-    <updated>2020-03-06T15:42:09.436Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/2020/01/03/iOS-TextField-输入框处理关闭键盘策略/a.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;/2020/01/03/iOS-TextField-输入框处理关闭键盘策略/a.png&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://duanyitao.com/categories/iOS/"/>
-    
-    
-      <category term="TextField" scheme="http://duanyitao.com/tags/TextField/"/>
-    
-      <category term="键盘" scheme="http://duanyitao.com/tags/%E9%94%AE%E7%9B%98/"/>
-    
-  </entry>
   
   <entry>
     <title>LiveData may lost Data</title>
