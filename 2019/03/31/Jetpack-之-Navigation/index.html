@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jetpack,Navigation,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Colin's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Navigation 是 Jetpack 组件中用于页面路由导航。在 Fragment 应用场景下，特别适合把各种页面逻辑调转和传参等繁琐无畏的模板代码交给 Navigation 来处理，同时能大幅度减少代码的数量和出错的问题。 类比 iOS 的 storyboard 有着很多相似的地方，下面就让我来看看具体如何来实现 Navigation 在项目中的应用。 配置环境module 中的 build">
+<meta name="keywords" content="Jetpack,Navigation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jetpack 之 Navigation">
+<meta property="og:url" content="http://duanyitao.com/2019/03/31/Jetpack-之-Navigation/index.html">
+<meta property="og:site_name" content="Colin&#39;s Blog">
+<meta property="og:description" content="Navigation 是 Jetpack 组件中用于页面路由导航。在 Fragment 应用场景下，特别适合把各种页面逻辑调转和传参等繁琐无畏的模板代码交给 Navigation 来处理，同时能大幅度减少代码的数量和出错的问题。 类比 iOS 的 storyboard 有着很多相似的地方，下面就让我来看看具体如何来实现 Navigation 在项目中的应用。 配置环境module 中的 build">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-12T10:02:42.751Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jetpack 之 Navigation">
+<meta name="twitter:description" content="Navigation 是 Jetpack 组件中用于页面路由导航。在 Fragment 应用场景下，特别适合把各种页面逻辑调转和传参等繁琐无畏的模板代码交给 Navigation 来处理，同时能大幅度减少代码的数量和出错的问题。 类比 iOS 的 storyboard 有着很多相似的地方，下面就让我来看看具体如何来实现 Navigation 在项目中的应用。 配置环境module 中的 build">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":20,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://duanyitao.com/2019/03/31/Jetpack-之-Navigation/">
+
+
+
+
+
+  <title>Jetpack 之 Navigation | Colin's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Colin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">时间是没有声音的锉刀。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-android">
+          <a href="/categories/Android/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-android"></i> <br>
+            
+            Android
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-kotlin">
+          <a href="/categories/Kotlin/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br>
+            
+            Kotlin
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-dart">
+          <a href="/categories/Dart/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-terminal"></i> <br>
+            
+            Dart
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-flutter">
+          <a href="/categories/Flutter/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-road"></i> <br>
+            
+            Flutter
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-rn">
+          <a href="/categories/RN/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tablet"></i> <br>
+            
+            RN
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-ios">
+          <a href="/categories/iOS/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-apple"></i> <br>
+            
+            iOS
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/Web/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-html5"></i> <br>
+            
+            Web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-算法">
+          <a href="/categories/Algorithm/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calculator"></i> <br>
+            
+            算法
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://duanyitao.com/2019/03/31/Jetpack-之-Navigation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="段燚涛">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Colin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Jetpack 之 Navigation</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T12:44:40+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-12T18:02:42+08:00">
+                2019-04-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Navigation 是 Jetpack 组件中用于页面路由导航。在 Fragment 应用场景下，特别适合把各种页面逻辑调转和传参等繁琐无畏的模板代码交给 Navigation 来处理，同时能大幅度减少代码的数量和出错的问题。</p>
+<p>类比 iOS 的 storyboard 有着很多相似的地方，下面就让我来看看具体如何来实现 Navigation 在项目中的应用。</p>
+<h1 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h1><h2 id="module-中的-build-脚本："><a href="#module-中的-build-脚本：" class="headerlink" title="module 中的 build 脚本："></a>module 中的 build 脚本：</h2><pre><code>def nav_version = &quot;2.0.0&quot;
+implementation &quot;androidx.navigation:navigation-fragment:$nav_version&quot; // For Kotlin use navigation-fragment-ktx
+implementation &quot;androidx.navigation:navigation-ui:$nav_version&quot; // For Kotlin use navigation-ui-ktx
+</code></pre><h2 id="root-的-build-脚本："><a href="#root-的-build-脚本：" class="headerlink" title="root 的 build 脚本："></a>root 的 build 脚本：</h2><pre><code>buildscript {
+    ...
+    dependencies {
+        ...
+        classpath &quot;androidx.navigation:navigation-safe-args-gradle-plugin:2.0.0&quot;
+    }
+}
+</code></pre><h1 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h1><h2 id="导航容器（navigation-container）"><a href="#导航容器（navigation-container）" class="headerlink" title="导航容器（navigation container）"></a>导航容器（navigation container）</h2><ul>
+<li>系统已经为我们实现了一个导航容器，<strong>androidx.navigation.fragment.NavHostFragment</strong>。</li>
+<li>使用方式:将以下代码加入到 Activity 中的 layout 文件内</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;fragment</span><br><span class="line">        android:id=&quot;@+id/nav_host_fragment&quot;</span><br><span class="line">        android:name=&quot;androidx.navigation.fragment.NavHostFragment&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;</span><br><span class="line">        app:defaultNavHost=&quot;true&quot;</span><br><span class="line">        app:navGraph=&quot;@navigation/nav_graph&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="导航控制器（navigation-controller）"><a href="#导航控制器（navigation-controller）" class="headerlink" title="导航控制器（navigation controller）"></a>导航控制器（navigation controller）</h2><ul>
+<li>通过导航容器，即可拿到导航控制器对象。获取方式见 3.4。</li>
+</ul>
+<h2 id="目标页面（destination）"><a href="#目标页面（destination）" class="headerlink" title="目标页面（destination）"></a>目标页面（destination）</h2><pre><code>App 中所有的 Fragment 都可作为目标页面。
+</code></pre><h2 id="跳转动作（action）"><a href="#跳转动作（action）" class="headerlink" title="跳转动作（action）"></a>跳转动作（action）</h2><pre><code>App 中任意两个目标页面之间的逻辑跳转，都称作一个跳转动作。
+</code></pre><h2 id="导航视图（navigation-graph）"><a href="#导航视图（navigation-graph）" class="headerlink" title="导航视图（navigation graph）"></a>导航视图（navigation graph）</h2><pre><code>导航控制器需要指定一个导航视图，导航视图包括了所有的目标页面以及跳转动作。
+</code></pre><h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><h2 id="如何创建导航视图（navigation-graph）？"><a href="#如何创建导航视图（navigation-graph）？" class="headerlink" title="如何创建导航视图（navigation graph）？"></a>如何创建导航视图（navigation graph）？</h2><pre><code>res -&gt; 右键 -&gt; new -&gt; Android Resources File，在 Resource Type 中选择 Navigation。
+</code></pre><h2 id="如何创建一个目标页面（destination）？"><a href="#如何创建一个目标页面（destination）？" class="headerlink" title="如何创建一个目标页面（destination）？"></a>如何创建一个目标页面（destination）？</h2><pre><code>res -&gt; navigation -&gt; 打开一个导航视图 -&gt; 切换到 Design 模式
+-&gt; 点击导航视图面板中的加号（New Destination)
+-&gt;（Create new destination) -&gt; 输入目标页面名称
+
+注：取消勾选 「Include fragment factory methods」 和 「Include interface callbacks」这两个选项,一般用不到。
+</code></pre><h2 id="如何创建一个跳转动作（action）？"><a href="#如何创建一个跳转动作（action）？" class="headerlink" title="如何创建一个跳转动作（action）？"></a>如何创建一个跳转动作（action）？</h2><pre><code>res -&gt; navigation -&gt; 打开一个导航视图 -&gt; 切换到 Design 模式
+-&gt; 选中一个目标页面 -&gt; 目标页面右侧会有一个圆点
+-&gt; 拖动这个圆点链接到另一个目标页面
+
+这样一个跳转动作就完成了。
+</code></pre><h2 id="如何获取导航控制器（navigation-controller）？"><a href="#如何获取导航控制器（navigation-controller）？" class="headerlink" title="如何获取导航控制器（navigation controller）？"></a>如何获取导航控制器（navigation controller）？</h2><pre><code>有三种方式可以获取到导航控制器
+</code></pre><ul>
+<li>通过 View 获取<ul>
+<li>Kotlin<br><code>View.findNavController()</code></li>
+<li>Java<br><code>Navigation.findNavController(View)</code></li>
+</ul>
+</li>
+<li>通过 Fragment 获取<ul>
+<li>Kotlin<br><code>Fragment.findNavController()</code></li>
+<li>Java<br><code>NavHostFragment.findNavController(Fragment)</code></li>
+</ul>
+</li>
+<li>通过 Activity 获取<ul>
+<li>Kotlin<br><code>Activity.findNavController(viewId: Int)</code></li>
+<li>Java<br><code>Navigation.findNavController(Activity, @IdRes int viewId)</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="如何执行跳转？"><a href="#如何执行跳转？" class="headerlink" title="如何执行跳转？"></a>如何执行跳转？</h2><ul>
+<li>首先，所有的跳转都是通过导航控制器（navigation controller）来完成的，所以，我们先要拿到 navigation controller 对象，见 3.4。</li>
+<li>拿到 navigation controller 对象之后，我们就可以执行它的 navigate 方法，传入跳转动作的 int 类型 ID，进行相应的跳转。</li>
+<li>示例：<code>findNavController().navigate(R.id.action_page1Fragment_to_page2Fragment )</code></li>
+<li>传递参数：只需要添加参数即可：<ul>
+<li><code>val args = Bundle()</code></li>
+<li><code>args.putString(ARG,&quot;TEST DATA....&quot;)</code></li>
+<li><code>findNavController().navigate(R.id.action_page1Fragment_to_page2Fragment ,args)</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="如何控制页面的栈？"><a href="#如何控制页面的栈？" class="headerlink" title="如何控制页面的栈？"></a>如何控制页面的栈？</h2><ul>
+<li>正常情况下，每次导航一个新的目标页面，都把目标页面置为栈顶。</li>
+<li>如果某一个跳转（action）执行之后，希望把它的目标页面（destination）置顶并清除原来的栈，就需要在它对应的 action 上加入下面两个属性：<ul>
+<li><code>app:popUpToInclusive=&quot;true&quot;</code></li>
+<li><code>app:popUpTo=&quot;@+id/page1Fragment&quot;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="控制栈的回退"><a href="#控制栈的回退" class="headerlink" title="控制栈的回退"></a>控制栈的回退</h2><ul>
+<li>调用 <code>findNavController().navigateUp()</code> 执行一次栈顶出栈操作。</li>
+</ul>
+<h2 id="跳转动画可以自定义么？"><a href="#跳转动画可以自定义么？" class="headerlink" title="跳转动画可以自定义么？"></a>跳转动画可以自定义么？</h2><p>可以的。在 action 节点下添加以下属性指定页面跳转动画：、</p>
+<ul>
+<li><code>app:enterAnim=&quot;@anim/nav_default_enter_anim&quot;</code></li>
+<li><code>app:exitAnim=&quot;@anim/nav_default_exit_anim&quot;</code></li>
+<li><code>app:popEnterAnim=&quot;@anim/nav_default_pop_enter_anim&quot;</code></li>
+<li><code>app:popExitAnim=&quot;@anim/nav_default_pop_exit_anim&quot;</code></li>
+</ul>
+<h2 id="如何设置启动页？"><a href="#如何设置启动页？" class="headerlink" title="如何设置启动页？"></a>如何设置启动页？</h2><p>每一个导航视图，都必须有且只有一个启动页（start destination）</p>
+<ul>
+<li>res -&gt; navigation -&gt; 打开一个导航视图 -&gt; 切换到 Design 模式 -&gt; 选中一个目标页面 -&gt; 点击导航编辑器面板上的 「小房子」图标即可设置当前页面为启动页。</li>
+</ul>
+<h2 id="如何传递参数"><a href="#如何传递参数" class="headerlink" title="如何传递参数"></a>如何传递参数</h2><p>可以参考我的Github示例代码<br><a href="https://github.com/duanyitao/NavigationDemo" target="_blank" rel="noopener">https://github.com/duanyitao/NavigationDemo</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="段燚涛 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="段燚涛 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Jetpack/" rel="tag"># Jetpack</a>
+          
+            <a href="/tags/Navigation/" rel="tag"># Navigation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/02/Jetpack-框架研究计划/" rel="prev" title="Jetpack 框架研究计划">
+                Jetpack 框架研究计划 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzUzNC8yMDA3Mw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="段燚涛">
+            
+              <p class="site-author-name" itemprop="name">段燚涛</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/duanyitao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:duanyitao7937@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                快速链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/googlesamples/android-architecture/tree/todo-mvvm-databinding/todoapp" title="Android-architecture" target="_blank">Android-architecture</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://developer.android.google.cn/jetpack" title="Jetpack" target="_blank">Jetpack</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置环境"><span class="nav-number">1.</span> <span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#module-中的-build-脚本："><span class="nav-number">1.1.</span> <span class="nav-text">module 中的 build 脚本：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#root-的-build-脚本："><span class="nav-number">1.2.</span> <span class="nav-text">root 的 build 脚本：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念解释"><span class="nav-number">2.</span> <span class="nav-text">概念解释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导航容器（navigation-container）"><span class="nav-number">2.1.</span> <span class="nav-text">导航容器（navigation container）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导航控制器（navigation-controller）"><span class="nav-number">2.2.</span> <span class="nav-text">导航控制器（navigation controller）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标页面（destination）"><span class="nav-number">2.3.</span> <span class="nav-text">目标页面（destination）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转动作（action）"><span class="nav-number">2.4.</span> <span class="nav-text">跳转动作（action）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导航视图（navigation-graph）"><span class="nav-number">2.5.</span> <span class="nav-text">导航视图（navigation graph）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">3.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建导航视图（navigation-graph）？"><span class="nav-number">3.1.</span> <span class="nav-text">如何创建导航视图（navigation graph）？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建一个目标页面（destination）？"><span class="nav-number">3.2.</span> <span class="nav-text">如何创建一个目标页面（destination）？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建一个跳转动作（action）？"><span class="nav-number">3.3.</span> <span class="nav-text">如何创建一个跳转动作（action）？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取导航控制器（navigation-controller）？"><span class="nav-number">3.4.</span> <span class="nav-text">如何获取导航控制器（navigation controller）？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何执行跳转？"><span class="nav-number">3.5.</span> <span class="nav-text">如何执行跳转？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何控制页面的栈？"><span class="nav-number">3.6.</span> <span class="nav-text">如何控制页面的栈？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制栈的回退"><span class="nav-number">3.7.</span> <span class="nav-text">控制栈的回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转动画可以自定义么？"><span class="nav-number">3.8.</span> <span class="nav-text">跳转动画可以自定义么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设置启动页？"><span class="nav-number">3.9.</span> <span class="nav-text">如何设置启动页？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何传递参数"><span class="nav-number">3.10.</span> <span class="nav-text">如何传递参数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Build by duanyitao.</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">18.4k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>
