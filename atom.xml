@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://duanyitao.com/"/>
-  <updated>2020-03-11T03:53:39.933Z</updated>
+  <updated>2020-03-11T10:24:57.589Z</updated>
   <id>http://duanyitao.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dart 语法(1)</title>
+    <link href="http://duanyitao.com/2020/03/11/Dart-%E8%AF%AD%E6%B3%95-1/"/>
+    <id>http://duanyitao.com/2020/03/11/Dart-语法-1/</id>
+    <published>2020-03-11T10:24:05.000Z</published>
+    <updated>2020-03-11T10:24:57.589Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Dart-语法-1"><a href="#Dart-语法-1" class="headerlink" title="Dart 语法(1)"></a>Dart 语法(1)</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Dart-语法-1&quot;&gt;&lt;a href=&quot;#Dart-语法-1&quot; class=&quot;headerlink&quot; title=&quot;Dart 语法(1)&quot;&gt;&lt;/a&gt;Dart
+        
+      
+    
+    </summary>
+    
+      <category term="Dart" scheme="http://duanyitao.com/categories/Dart/"/>
+    
+    
+      <category term="语法" scheme="http://duanyitao.com/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Webview Http Https</title>
