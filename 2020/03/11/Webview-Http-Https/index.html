@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Databinding,Jetpack,">
+  <meta name="keywords" content="Webview,HTTP,HTTPS,">
 
 
 
@@ -92,18 +92,20 @@
 
 
 
-<meta name="description" content="什么是可观察对象 注：本文参考并翻译自官网链接    可观察性是指对象具备通知外部其数据发生变化的能力。Databinding 支持对象、字段或集合的可观察。  当其中一个可观察数据对象绑定到UI并且数据对象的属性发生更改时，UI将自动更新。   可观察的类型 任何普通对象都可用于数据绑定，但修改对象不会自动导致UI更新。Databinding 可用于为数据对象提供在数据更改时通知其他对象（称为侦">
-<meta name="keywords" content="Databinding,Jetpack">
+<meta name="description" content="原文地址： https://blog.csdn.net/jinshitou2012/article/details/80307428">
+<meta name="keywords" content="Webview,HTTP,HTTPS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DataBinding - 使用可观察的数据对象">
-<meta property="og:url" content="http://duanyitao.com/2019/04/09/DataBinding - 使用可观察的数据对象/index.html">
+<meta property="og:title" content="Webview Http Https">
+<meta property="og:url" content="http://duanyitao.com/2020/03/11/Webview-Http-Https/index.html">
 <meta property="og:site_name" content="Colin&#39;s Blog">
-<meta property="og:description" content="什么是可观察对象 注：本文参考并翻译自官网链接    可观察性是指对象具备通知外部其数据发生变化的能力。Databinding 支持对象、字段或集合的可观察。  当其中一个可观察数据对象绑定到UI并且数据对象的属性发生更改时，UI将自动更新。   可观察的类型 任何普通对象都可用于数据绑定，但修改对象不会自动导致UI更新。Databinding 可用于为数据对象提供在数据更改时通知其他对象（称为侦">
+<meta property="og:description" content="原文地址： https://blog.csdn.net/jinshitou2012/article/details/80307428">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-17T07:48:59.219Z">
+<meta property="og:image" content="http://duanyitao.com/2020/03/11/Webview-Http-Https/img1.png">
+<meta property="og:updated_time" content="2020-03-11T03:53:39.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DataBinding - 使用可观察的数据对象">
-<meta name="twitter:description" content="什么是可观察对象 注：本文参考并翻译自官网链接    可观察性是指对象具备通知外部其数据发生变化的能力。Databinding 支持对象、字段或集合的可观察。  当其中一个可观察数据对象绑定到UI并且数据对象的属性发生更改时，UI将自动更新。   可观察的类型 任何普通对象都可用于数据绑定，但修改对象不会自动导致UI更新。Databinding 可用于为数据对象提供在数据更改时通知其他对象（称为侦">
+<meta name="twitter:title" content="Webview Http Https">
+<meta name="twitter:description" content="原文地址： https://blog.csdn.net/jinshitou2012/article/details/80307428">
+<meta name="twitter:image" content="http://duanyitao.com/2020/03/11/Webview-Http-Https/img1.png">
 
 
 
@@ -133,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://duanyitao.com/2019/04/09/DataBinding - 使用可观察的数据对象/">
+  <link rel="canonical" href="http://duanyitao.com/2020/03/11/Webview-Http-Https/">
 
 
 
 
 
-  <title>DataBinding - 使用可观察的数据对象 | Colin's Blog</title>
+  <title>Webview Http Https | Colin's Blog</title>
   
 
 
@@ -346,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://duanyitao.com/2019/04/09/DataBinding - 使用可观察的数据对象/">
+    <link itemprop="mainEntityOfPage" href="http://duanyitao.com/2020/03/11/Webview-Http-Https/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="段燚涛">
@@ -363,7 +365,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">DataBinding - 使用可观察的数据对象</h2>
+          <h2 class="post-title" itemprop="name headline">Webview Http Https</h2>
         
 
         <div class="post-meta">
@@ -375,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-09T14:22:48+08:00">
-                2019-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-11T11:49:22+08:00">
+                2020-03-11
               </time>
             
 
@@ -391,8 +393,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-17T15:48:59+08:00">
-                2019-04-17
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-11T11:53:39+08:00">
+                2020-03-11
               </time>
             
           </span>
@@ -441,7 +443,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  921
+                  12
                 </span>
               
 
@@ -457,7 +459,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -478,60 +480,8 @@
       
 
       
-        <h1 id="什么是可观察对象"><a href="#什么是可观察对象" class="headerlink" title="什么是可观察对象"></a>什么是可观察对象</h1><blockquote>
-<p>注：本文参考并翻译自<a href="https://developer.android.com/topic/libraries/data-binding/observability" target="_blank" rel="noopener">官网链接</a></p>
-</blockquote>
-<hr>
-<ul>
-<li><p>可观察性是指对象具备通知外部其数据发生变化的能力。Databinding 支持对象、字段或集合的可观察。</p>
-</li>
-<li><p>当其中一个可观察数据对象绑定到UI并且数据对象的属性发生更改时，UI将自动更新。</p>
-</li>
-</ul>
-<h1 id="可观察的类型"><a href="#可观察的类型" class="headerlink" title="可观察的类型"></a>可观察的类型</h1><blockquote>
-<p>任何普通对象都可用于数据绑定，但修改对象不会自动导致UI更新。Databinding 可用于为数据对象提供在数据更改时通知其他对象（称为侦听器）的能力。有三种不同类型的可观察类： 对象，字段和 集合。</p>
-</blockquote>
-<h2 id="可观察字段"><a href="#可观察字段" class="headerlink" title="可观察字段"></a>可观察字段</h2><blockquote>
-<p>有时候你的类中如果有一些需要更新的字段，并且只包含以下这些属性，那么可以直接使用系统的实现，而不需要重新实现。这时候，你字需要使用可观察对象作为其字段，或者直接使用可观察字段。</p>
-</blockquote>
-<ul>
-<li>ObservableBoolean</li>
-<li>ObservableByte</li>
-<li>ObservableChar</li>
-<li>ObservableShort</li>
-<li>ObservableInt</li>
-<li>ObservableLong</li>
-<li>ObservableFloat</li>
-<li>ObservableDouble</li>
-<li>ObservableParcelable</li>
-</ul>
-<blockquote>
-<p>可观察字段是具有单个字段的自包含可观察对象。原始版本在访问操作期间避免装箱和拆箱。要使用此机制，请public final在 Java 编程语言中创建属性或在 Kotlin 中创建只读属性，如以下示例所示：</p>
-</blockquote>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> firstName = ObservableField&lt;String&gt;()</span><br><span class="line">    <span class="keyword">val</span> lastName = ObservableField&lt;String&gt;()</span><br><span class="line">    <span class="keyword">val</span> age = ObservableInt()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要访问字段值，请使用 set() and get() 方法，如下所示</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user.firstName = <span class="string">"Google"</span></span><br><span class="line"><span class="keyword">val</span> age = user.age</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Note: Android Studio 3.1 and higher allow you to replace observable fields with LiveData objects, which provide additional benefits to your app. For more information, <a href="https://developer.android.com/topic/libraries/data-binding/architecture.html#livedata" target="_blank" rel="noopener">see Use LiveData to notify the UI about data changes</a>.</p>
-</blockquote>
-<h2 id="可观察集合"><a href="#可观察集合" class="headerlink" title="可观察集合"></a>可观察集合</h2><ul>
-<li><p>可以使用可观察的集合，来存放一些列的数据。通过示例来使用 ObservableArrayMap 类：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ObservableArrayMap&lt;String, Any&gt;().apply &#123;</span><br><span class="line">  put(<span class="string">"firstName"</span>, <span class="string">"Google"</span>)</span><br><span class="line">  put(<span class="string">"lastName"</span>, <span class="string">"Inc."</span>)</span><br><span class="line">  put(<span class="string">"age"</span>, <span class="number">17</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在布局文件中，可以直接使用 key 去拿到这个存储的值：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"android.databinding.ObservableMap"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"ObservableMap&lt;String, Object&gt;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">…</span><br><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">"@&#123;user.lastName&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">"@&#123;String.valueOf(1 + (Integer)user.age)&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果 Key 是无序的 int 时，可以使用 ObservableArrayList 类。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ObservableArrayList&lt;Any&gt;().apply &#123;  </span><br><span class="line">add(<span class="string">"Google"</span>)</span><br><span class="line">add(<span class="string">"Inc."</span>)</span><br><span class="line">add(<span class="number">17</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 layout 文件中，可以直接通过索引的方式获取：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"android.databinding.ObservableList"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"com.example.my.app.Fields"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"ObservableList&lt;Object&gt;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">…</span><br><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">'@&#123;user[Fields.LAST_NAME]&#125;'</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">'@&#123;String.valueOf(1 + (Integer)user[Fields.AGE])&#125;'</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="可观察的对象"><a href="#可观察的对象" class="headerlink" title="可观察的对象"></a>可观察的对象</h2><blockquote>
-<p>实现 Observable 接口的类，允许注册对象属性更改的侦听器。<br>该 Observable 接口具有添加和删除侦听器的机制，但您必须决定何时发送通知。为了使开发更容易，Databinding 库提供了 BaseObservable 实现侦听器注册机制的类。实现了 BaseObservable 的类，负责在属性更改时发出通知。这是通过 Bindable 为 getter 添加注解，并在 setter 中调用 notifyPropertyChanged() 方法来完成的，如以下示例所示：</p>
-</blockquote>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> : <span class="type">BaseObservable</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@get:Bindable</span></span><br><span class="line">    <span class="keyword">var</span> firstName: String = <span class="string">""</span></span><br><span class="line">        <span class="keyword">set</span>(value) &#123;</span><br><span class="line">            field = value</span><br><span class="line">            notifyPropertyChanged(BR.firstName)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@get:Bindable</span></span><br><span class="line">    <span class="keyword">var</span> lastName: String = <span class="string">""</span></span><br><span class="line">        <span class="keyword">set</span>(value) &#123;</span><br><span class="line">            field = value</span><br><span class="line">            notifyPropertyChanged(BR.lastName)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Databinding 在模块包中生成BR命名的类，该类包含用于 Databinding 的资源的ID。 Bindable 注解会在编译期生成一个 BR类 中的的条目。如果无法更改数据类的基类，则 Observable可以使用PropertyChangeRegistry 对象来实现接口， 以便有效地注册和通知侦听器。</p>
+        <blockquote>
+<p>原文地址： <a href="https://blog.csdn.net/jinshitou2012/article/details/80307428" target="_blank" rel="noopener">https://blog.csdn.net/jinshitou2012/article/details/80307428</a><br><img src="/2020/03/11/Webview-Http-Https/img1.png" alt="img"></p>
 </blockquote>
 
       
@@ -579,9 +529,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Databinding/" rel="tag"># Databinding</a>
+            <a href="/tags/Webview/" rel="tag"># Webview</a>
           
-            <a href="/tags/Jetpack/" rel="tag"># Jetpack</a>
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+            <a href="/tags/HTTPS/" rel="tag"># HTTPS</a>
           
         </div>
       
@@ -594,8 +546,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/04/Jetpack-之-Databinding/" rel="next" title="Jetpack 之 Databinding">
-                <i class="fa fa-chevron-left"></i> Jetpack 之 Databinding
+              <a href="/2020/03/11/使用-Chronometer-实现倒计时/" rel="next" title="使用 Chronometer 实现倒计时">
+                <i class="fa fa-chevron-left"></i> 使用 Chronometer 实现倒计时
               </a>
             
           </div>
@@ -603,10 +555,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/12/Jetpack-之-LiveData/" rel="prev" title="Jetpack 之 LiveData">
-                Jetpack 之 LiveData <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -663,17 +611,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -776,22 +715,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是可观察对象"><span class="nav-number">1.</span> <span class="nav-text">什么是可观察对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可观察的类型"><span class="nav-number">2.</span> <span class="nav-text">可观察的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可观察字段"><span class="nav-number">2.1.</span> <span class="nav-text">可观察字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可观察集合"><span class="nav-number">2.2.</span> <span class="nav-text">可观察集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可观察的对象"><span class="nav-number">2.3.</span> <span class="nav-text">可观察的对象</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

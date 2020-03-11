@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Webview Http Https]]></title>
+    <url>%2F2020%2F03%2F11%2FWebview-Http-Https%2F</url>
+    <content type="text"><![CDATA[原文地址： https://blog.csdn.net/jinshitou2012/article/details/80307428]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Webview</tag>
+        <tag>HTTP</tag>
+        <tag>HTTPS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用 Chronometer 实现倒计时]]></title>
     <url>%2F2020%2F03%2F11%2F%E4%BD%BF%E7%94%A8-Chronometer-%E5%AE%9E%E7%8E%B0%E5%80%92%E8%AE%A1%E6%97%B6%2F</url>
     <content type="text"><![CDATA[使用 Chronometer 实现倒计时 在实际业务开发的场景中，经常会有要用到倒计时的功能，比如一个广告页面倒计时，比如一个超时自动关闭页面，等这些操作都离不开倒计时的概念。当然，我们完全可以自己去实现一个倒计时逻辑，例如使用 timer ，或者使用 RxJava 等各种定时策略。本文介绍一个比较简单的，系统原生提供的一个组件 Chronometer。 具体实现XML12345678910111213&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/activity_main" android:layout_width="match_parent" android:layout_height="match_parent"&gt; &lt;Chronometer android:id="@+id/chronometer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_centerHorizontal="true" /&gt;&lt;/RelativeLayout&gt; Activity12345678910111213141516171819202122232425262728public class ChronoActivity1 extends AppCompatActivity &#123; int time = 60; @Override protected void onCreate(Bundle savedInstanceState) &#123; super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); Chronometer chronometer = findViewById(R.id.chronometer); chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() &#123; @Override public void onChronometerTick(Chronometer chronometer) &#123; if (time == 0) &#123; chronometer.setText("0"); chronometer.stop(); finish(); &#125; else &#123; time--; chronometer.setText(time + ""); &#125; &#125; &#125;); chronometer.start(); &#125;&#125; 是不是觉得非常简单呢？]]></content>
