@@ -65,8 +65,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>LiveData</tag>
         <tag>Jetpack</tag>
+        <tag>LiveData</tag>
       </tags>
   </entry>
   <entry>
@@ -88,8 +88,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>MVVM</tag>
         <tag>Koin</tag>
+        <tag>MVVM</tag>
       </tags>
   </entry>
   <entry>
@@ -111,8 +111,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Jetpack</tag>
         <tag>Databinding</tag>
+        <tag>Jetpack</tag>
       </tags>
   </entry>
   <entry>
@@ -135,8 +135,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>LiveData</tag>
         <tag>Jetpack</tag>
+        <tag>LiveData</tag>
       </tags>
   </entry>
   <entry>
@@ -147,8 +147,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Jetpack</tag>
         <tag>Databinding</tag>
+        <tag>Jetpack</tag>
       </tags>
   </entry>
   <entry>
@@ -159,8 +159,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Jetpack</tag>
         <tag>Databinding</tag>
+        <tag>Jetpack</tag>
       </tags>
   </entry>
   <entry>
