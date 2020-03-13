@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://duanyitao.com/"/>
-  <updated>2020-03-12T07:48:13.302Z</updated>
+  <updated>2020-03-13T03:03:16.567Z</updated>
   <id>http://duanyitao.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决 Flutter 中 Downloading ios-profile tools... 无响应</title>
+    <link href="http://duanyitao.com/2020/03/13/%E8%A7%A3%E5%86%B3-Flutter-%E4%B8%AD-Downloading-ios-profile-tools-%E6%97%A0%E5%93%8D%E5%BA%94/"/>
+    <id>http://duanyitao.com/2020/03/13/解决-Flutter-中-Downloading-ios-profile-tools-无响应/</id>
+    <published>2020-03-13T02:55:51.000Z</published>
+    <updated>2020-03-13T03:03:16.567Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="解决-Flutter-中-Downloading-ios-profile-tools…-无响应"><a href="#解决-Flutter-中-Downloading-ios-profile-tools…-无响应" class="headerlink" title="解决 Flutter 中 Downloading ios-profile tools… 无响应"></a>解决 Flutter 中 Downloading ios-profile tools… 无响应</h2><blockquote><p>由于需要科学上网的原因，需要手动配置下国内镜像即可。</p></blockquote><h2 id="在终端下执行如下两句"><a href="#在终端下执行如下两句" class="headerlink" title="在终端下执行如下两句"></a>在终端下执行如下两句</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br></pre></td></tr></table></figure><h2 id="重新执行-flutter-命令即可解决。"><a href="#重新执行-flutter-命令即可解决。" class="headerlink" title="重新执行 flutter 命令即可解决。"></a>重新执行 flutter 命令即可解决。</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;解决-Flutter-中-Downloading-ios-profile-tools…-无响应&quot;&gt;&lt;a href=&quot;#解决-Flutter-中-Downloading-ios-profile-tools…-无响应&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Flutter" scheme="http://duanyitao.com/categories/Flutter/"/>
+    
+    
+      <category term="无响应" scheme="http://duanyitao.com/tags/%E6%97%A0%E5%93%8D%E5%BA%94/"/>
+    
+  </entry>
   
   <entry>
     <title>Dart 语法(2)</title>
@@ -244,9 +272,9 @@
       <category term="Android" scheme="http://duanyitao.com/categories/Android/"/>
     
     
-      <category term="MVVM" scheme="http://duanyitao.com/tags/MVVM/"/>
-    
       <category term="Koin" scheme="http://duanyitao.com/tags/Koin/"/>
+    
+      <category term="MVVM" scheme="http://duanyitao.com/tags/MVVM/"/>
     
   </entry>
   
