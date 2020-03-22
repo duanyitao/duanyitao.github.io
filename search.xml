@@ -3,9 +3,12 @@
   <entry>
     <title><![CDATA[Vim(01入门操作)]]></title>
     <url>%2F2020%2F03%2F22%2FVim-01%E5%85%A5%E9%97%A8%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[原文： https://www.iteye.com/blog/liuzhijun-1826508 打开文件的方式 $ vim /etc/group 或者 $ vim :e /etc/group 保存文件 :w 或者 :write #保存正在工作状态的文件 :up 或者:update #保存正在工作状态的文件 up在windows下面不生效 :w newfile.txt #另存为文件 newfile.txt :up newfile.txt #另存为newfile.txt 关闭文件 :x #保存当前文件再退出 :wq #同上 :q! #不保存文件直接退出 Vim 的基本模式：（以后会介绍高级模式） 如果想正确操作上面的命令你的先理解Vim的三种模式： 普通模式进入vim后最初的模式，在这种模式下面你可以输入任何不限于上面的那些编辑命令，在其他模式下只要多按几下ESC键就回到了普通模式 插入模式在普通模式下输入字符‘i’等插入命令，vim就进入了插入模式，在该模式下面可以插入文本字符。 命令行模式这个模式用于在编辑器底部执行命令，例如:wq等等，如果从插入模式下面切换到命令行模式或者普通模式呢，用ESC键。 完整示例：创建or打开文件 —〉插入字符—〉保存关闭退出 vim helloworld.txt (普通模式下打开 &lt;如果该文件不存在vim自动新建该文件&gt;文件）i (进入插入模式，此时可随意添加文本）(ESC :wq 进入命令行模式，保存文件退出)光标移动：h：向左移动j：向下移动k：向上移动l：向右移动]]></content>
+      <categories>
+        <category>Vim</category>
+      </categories>
       <tags>
-        <tag></tag>
+        <tag>Vim</tag>
       </tags>
   </entry>
   <entry>

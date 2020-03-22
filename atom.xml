@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://duanyitao.com/"/>
-  <updated>2020-03-22T09:20:55.442Z</updated>
+  <updated>2020-03-22T09:34:08.860Z</updated>
   <id>http://duanyitao.com/</id>
   
   <author>
@@ -21,14 +21,27 @@
     <link href="http://duanyitao.com/2020/03/22/Vim-01%E5%85%A5%E9%97%A8%E6%93%8D%E4%BD%9C/"/>
     <id>http://duanyitao.com/2020/03/22/Vim-01入门操作/</id>
     <published>2020-03-22T09:20:55.000Z</published>
-    <updated>2020-03-22T09:20:55.442Z</updated>
+    <updated>2020-03-22T09:34:08.860Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>原文： <a href="https://www.iteye.com/blog/liuzhijun-1826508" target="_blank" rel="noopener">https://www.iteye.com/blog/liuzhijun-1826508</a></p></blockquote><h2 id="打开文件的方式"><a href="#打开文件的方式" class="headerlink" title="打开文件的方式"></a>打开文件的方式</h2><ul><li>$ vim /etc/group</li></ul><p>或者</p><ul><li>$ vim</li><li>:e  /etc/group</li></ul><h2 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h2><ul><li>:w 或者 :write    #保存正在工作状态的文件</li><li>:up 或者:update   #保存正在工作状态的文件   up在windows下面不生效</li><li>:w newfile.txt    #另存为文件 newfile.txt   </li><li>:up newfile.txt   #另存为newfile.txt</li></ul><h2 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h2><ul><li>:x  #保存当前文件再退出</li><li>:wq #同上</li><li>:q! #不保存文件直接退出</li><li>Vim 的基本模式：（以后会介绍高级模式）</li></ul><p>如果想正确操作上面的命令你的先理解Vim的三种模式：</p><h2 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h2><p>进入vim后最初的模式，在这种模式下面你可以输入任何不限于上面的那些编辑命令，在其他模式下只要多按几下ESC键就回到了普通模式</p><h2 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h2><p>在普通模式下输入字符‘i’等插入命令，vim就进入了插入模式，在该模式下面可以插入文本字符。</p><h2 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h2><p>这个模式用于在编辑器底部执行命令，例如:wq等等，如果从插入模式下面切换到命令行模式或者普通模式呢，用ESC键。</p><p><img src="http://dl.iteye.com/upload/attachment/0081/3579/bd6a481e-ea67-36b0-a37b-ceeab1a7093e.png" alt="png"></p><p>完整示例：<br>创建or打开文件 —〉插入字符—〉保存关闭退出</p><p>vim helloworld.txt (普通模式下打开 &lt;如果该文件不存在vim自动新建该文件&gt;文件）<br>i (进入插入模式，此时可随意添加文本）<br>(ESC :wq 进入命令行模式，保存文件退出)<br>光标移动：<br>h：向左移动<br>j：向下移动<br>k：向上移动<br>l：向右移动</p><p><img src="http://dl.iteye.com/upload/attachment/0081/3581/ad2b6a01-4dac-3d05-b526-271337c87ff6.jpg" alt="png"></p>]]></content>
     
     <summary type="html">
     
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;原文： &lt;a href=&quot;https://www.iteye.com/blog/liuzhijun-1826508&quot; target=&quot;_blank&quot;
+        
+      
+    
     </summary>
     
+      <category term="Vim" scheme="http://duanyitao.com/categories/Vim/"/>
     
-      <category term="" scheme="http://duanyitao.com/tags/undefined/"/>
+    
+      <category term="Vim" scheme="http://duanyitao.com/tags/Vim/"/>
     
   </entry>
   
