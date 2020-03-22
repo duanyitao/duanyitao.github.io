@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vim(01入门操作)]]></title>
+    <url>%2F2020%2F03%2F22%2FVim-01%E5%85%A5%E9%97%A8%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag></tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决 Flutter 中 Downloading ios-profile tools... 无响应]]></title>
     <url>%2F2020%2F03%2F13%2F%E8%A7%A3%E5%86%B3-Flutter-%E4%B8%AD-Downloading-ios-profile-tools-%E6%97%A0%E5%93%8D%E5%BA%94%2F</url>
     <content type="text"><![CDATA[解决 Flutter 中 Downloading ios-profile tools… 无响应 由于需要科学上网的原因，需要手动配置下国内镜像即可。 在终端下执行如下两句12export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn 重新执行 flutter 命令即可解决。]]></content>
