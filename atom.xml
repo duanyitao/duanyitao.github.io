@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://duanyitao.com/"/>
-  <updated>2020-03-22T09:34:08.860Z</updated>
+  <updated>2020-03-24T07:44:08.441Z</updated>
   <id>http://duanyitao.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图解OkHttp</title>
+    <link href="http://duanyitao.com/2020/03/24/%E5%9B%BE%E8%A7%A3OkHttp/"/>
+    <id>http://duanyitao.com/2020/03/24/图解OkHttp/</id>
+    <published>2020-03-24T07:42:52.000Z</published>
+    <updated>2020-03-24T07:44:08.441Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="./okhttp.png" alt="okhttp"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;./okhttp.png&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="http://duanyitao.com/categories/Android/"/>
+    
+    
+      <category term="OkHttp" scheme="http://duanyitao.com/tags/OkHttp/"/>
+    
+  </entry>
   
   <entry>
     <title>Vim(01入门操作)</title>
@@ -301,9 +329,9 @@
       <category term="Android" scheme="http://duanyitao.com/categories/Android/"/>
     
     
-      <category term="MVVM" scheme="http://duanyitao.com/tags/MVVM/"/>
-    
       <category term="Koin" scheme="http://duanyitao.com/tags/Koin/"/>
+    
+      <category term="MVVM" scheme="http://duanyitao.com/tags/MVVM/"/>
     
   </entry>
   
